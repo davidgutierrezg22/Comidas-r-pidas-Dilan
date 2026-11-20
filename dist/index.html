@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffd334"><title>Comidas rápidas Dilan · Soledad</title><meta name="description" content="Consulta la carta de Comidas rápidas Dilan. Pizzas, perros, hamburguesas y domicilios en Soledad."><link rel="icon" href="assets/dilan.png"><link rel="stylesheet" href="estilo.css"></head>
-<body><header><div class="bar"><a class="brand" href="#inicio"><img src="assets/dilan.png" alt=""><span>Comidas rápidas <b>Dilan</b></span></a><nav aria-label="Navegación"><a href="#menu">La carta</a><a href="#local">Ubicación</a></nav><a class="call" href="tel:+573023817991">Llamar al local</a></div></header>
-<main id="inicio"><section class="hero"><div class="heroInner"><div class="heroCopy"><p class="place">COMIDAS RÁPIDAS EN SOLEDAD</p><h1>Hoy se come<br>en <em>Dilan.</em></h1><p class="lead">¿Pizza para compartir, un perro sencillo o una salvajada familiar? Elige de la carta y pide a domicilio.</p><div class="actions"><a class="button" href="https://wa.me/573023817991?text=Hola%2C%20Dilan.%20Quiero%20hacer%20un%20pedido%20a%20domicilio.">Pedir por WhatsApp</a><a class="under" href="#menu">Ver la carta</a></div></div><div class="visual"><img class="food" src="assets/pepperoni.png" alt="Pizza de pepperoni de la carta de Dilan"><img class="mascot" src="assets/dilan.png" alt="El personaje original de Comidas rápidas Dilan"></div></div></section>
+<body><header><div class="bar"><a class="brand" href="#inicio"><img src="assets/dilan.png" alt=""><span>Comidas rápidas <b>Dilan</b></span></a><nav aria-label="Navegación"><a href="#menu">La carta</a><a href="#local">Ubicación</a></nav><button class="call" id="ver-carrito" type="button">Mi pedido (<span id="contador">0</span>)</button></div></header>
+<main id="inicio"><section class="hero"><div class="heroInner"><div class="heroCopy"><p class="place">COMIDAS RÁPIDAS EN SOLEDAD</p><h1>Hoy se come<br>en <em>Dilan.</em></h1><p class="lead">¿Pizza para compartir, un perro sencillo o una salvajada familiar? Elige de la carta y pide a domicilio.</p><div class="actions"><a class="button" href="#menu">Armar mi pedido</a><a class="under" href="tel:+573023817991">Llamar al local</a></div></div><div class="visual"><img class="food" src="assets/pepperoni.png" alt="Pizza de pepperoni de la carta de Dilan"><img class="mascot" src="assets/dilan.png" alt="El personaje original de Comidas rápidas Dilan"></div></div></section>
 <section class="menu" id="menu"><div class="sectionHead"><h2>La carta<span>.</span></h2><p>Precios en pesos colombianos</p></div><div class="tabs" role="group" aria-label="Categorías del menú"></div><div class="list" id="platos" aria-live="polite"></div><div class="original"><strong>Cartas originales</strong><a href="assets/carta.png" target="_blank" rel="noopener">Comidas y bebidas</a><a href="assets/pizzas.png" target="_blank" rel="noopener">Pizzas por tamaño</a></div></section>
-<section class="local" id="local"><div><h2>Encuéntranos<span>.</span></h2><p>Calle 52 #9d-08, Soledad</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Calle%2052%20%239d-08%2C%20Soledad%2C%20Colombia">Ver en el mapa</a></div><div><h3>Domicilios</h3><a class="phone" href="tel:+573023817991">+57 (302) 381-7991</a></div></section></main><script src="carta.js"></script></body></html>
+<section class="local" id="local"><div><h2>Encuéntranos<span>.</span></h2><p>Calle 52 #9d-08, Soledad</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Calle%2052%20%239d-08%2C%20Soledad%2C%20Colombia">Ver en el mapa</a></div><div><h3>Domicilios</h3><a class="phone" href="tel:+573023817991">+57 (302) 381-7991</a></div></section></main><button id="pedido-flotante" class="button flotante" hidden></button>
+<dialog id="producto" aria-labelledby="nombre-plato"><form id="personalizar">
+<button class="cerrar" type="button" aria-label="Cerrar">×</button>
+<p class="categoria" id="tipo"></p><h3 id="nombre-plato"></h3>
+<label>Cantidad <input id="cantidad" type="number" min="1" max="99" value="1" required></label>
+<label>Indicaciones para este plato <textarea id="indicaciones" maxlength="250" placeholder="Por ejemplo, sin lechuga o con la salsa aparte"></textarea></label>
+<p>Para pedir dos versiones distintas, agrégalas por separado.</p>
+<button class="button" id="guardar"></button></form></dialog>
+<dialog id="carrito" aria-labelledby="titulo-carrito"><button class="cerrar" type="button" aria-label="Cerrar">×</button>
+<h3 id="titulo-carrito">Mi pedido</h3><div id="lineas"></div>
+<button class="seguir" type="button">Seguir eligiendo</button>
+<form id="entrega" hidden><p class="resumen">Subtotal de productos <strong id="subtotal"></strong></p>
+<p>El local confirma el costo del domicilio por WhatsApp.</p>
+<label>Tu nombre <input id="cliente" autocomplete="given-name" required maxlength="80"></label>
+<label>Dirección de entrega <input id="direccion" autocomplete="street-address" placeholder="Calle, número y barrio" required maxlength="200"></label>
+<button class="button">Continuar a WhatsApp</button>
+<p>Se abrirá el chat de Dilan con tu orden lista. Pulsa Enviar en WhatsApp para hacer el pedido.</p></form></dialog>
+<div id="aviso" role="status" class="lector"></div><script src="carta.js"></script></body></html>
+
